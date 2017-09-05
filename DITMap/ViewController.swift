@@ -54,16 +54,19 @@ class ViewController: UIViewController, MKMapViewDelegate {
             
             if annotation.title! == "부산시민공원" {
                 annotationView?.pinTintColor = UIColor.green
+                let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
+                leftIconView.image = UIImage(named:"citizen_logo.png" )
+                annotationView?.leftCalloutAccessoryView = leftIconView
+            } else {
+                let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 48, height: 48))
+                leftIconView.image = UIImage(named:"DIT_logo.png" )
+                annotationView?.leftCalloutAccessoryView = leftIconView
+
             }
-            
             
         } else {
             annotationView?.annotation = annotation
         }
-        
-        let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
-        leftIconView.image = UIImage(named:"bright-7.png" )
-        annotationView?.leftCalloutAccessoryView = leftIconView
         
         let btn = UIButton(type: .detailDisclosure)
         annotationView?.rightCalloutAccessoryView = btn
